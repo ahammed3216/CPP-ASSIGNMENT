@@ -6,7 +6,7 @@ int main()
 {
 
     priority_queue<int>queue1; //max heap
-    priority_queue<int,vector<int>,greater<int>>queue2;
+    priority_queue<int,vector<int>,greater<int>>queue2;//min heap
 
     queue1.push(1040);
     queue1.push(1030);

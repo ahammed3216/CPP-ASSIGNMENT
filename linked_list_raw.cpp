@@ -11,6 +11,13 @@ public:
         this->data = data;
         this->next = nullptr;
     }
+
+    ~Node()
+    {
+        cout<<"Destructor is called of node\n";
+    }
+
+
 };
 
 class linkedList
@@ -96,6 +103,7 @@ public:
         temp = head;
         if(head->data==value)
         {
+           
             head=(temp->next);
         }
         else
@@ -104,12 +112,29 @@ public:
         {
             if ((temp->next)->data == value)
             {
+              
                 temp->next=(temp->next)->next;
 
             }
             temp = temp->next;
         }
         }
+        
+    }
+
+    void FreePointer()
+    {
+        Node *temp,*prev;
+        temp=head;
+        while (temp != nullptr)
+        {
+            prev=temp->next;
+            delete(temp);
+            temp=prev;
+            
+        }
+        
+
     }
 };
 
@@ -128,4 +153,5 @@ int main()
     my_list.DeleteData(8);
     cout<<"\nData printinf after the deletion"<<endl;
     my_list.PrintData();
+    my_list.FreePointer();
 }

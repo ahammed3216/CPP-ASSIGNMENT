@@ -46,11 +46,7 @@ int main()
     ifstream file;
     file.open("raw_student_data.txt",ios::in);
 
-    // for(auto i=0;i<5;i++)
-    // {
-    //     file<<(ptr+i)->name<<" "<<(ptr+i)->age<<"\n";
-    // }
-    // cout<<"File creation is completed";
+
 
    
 for(auto i=0;i<5;i++)

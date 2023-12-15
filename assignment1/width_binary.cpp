@@ -8,6 +8,7 @@ class Node
 {
     public:
             int data;
+     
             Node* leftptr;
             Node* rightptr;
  
@@ -16,6 +17,7 @@ class Node
                 this->data=data;
                 this->leftptr=nullptr;
                 this->rightptr=nullptr;
+                
             }
  
             void show_data()
@@ -38,6 +40,8 @@ class binary_tree
         Node *head;
         int diameter;
         int root_diameter;
+        int n1;
+        int n2;
  
     public:
         
@@ -46,6 +50,8 @@ class binary_tree
             this->head=nullptr;
             diameter=0;
             root_diameter=0;
+            n1=0;
+            n2=0;
             
         }
  
@@ -219,6 +225,38 @@ class binary_tree
 
             }
         }
+
+        Node* lca(Node *root)
+        {
+            int value1=n1;
+            int value2=n2;
+            if(root ==nullptr)
+            {
+                return NULL;
+            }
+
+            if(((root->data) >n1) && ((root->data) >n2))
+            {
+                return lca(root->leftptr);
+            }
+            else if(((root->data) < n1 )&& ((root->data) <n2))
+            {
+                return lca(root->rightptr);
+            }
+
+            return root;
+
+        }
+
+        int lca_finder(int n1,int n2)
+        {
+            this->n1=n1;
+            this->n2=n2;
+            Node* value=lca(head);
+            //cout<<value->data;
+            return value->data;
+            
+        }
  
         
  
@@ -227,7 +265,7 @@ class binary_tree
 int main()
 {
 
-    int diamter=0;
+    int diamter=0,lca_value=0;
     unique_ptr<binary_tree>obj_ptr(new binary_tree());
  
     obj_ptr->InsertData(5);
@@ -247,6 +285,9 @@ int main()
     
     diameter=obj_ptr->Diamter();
     cout<<"\nDiameter value is :"<<diameter;
+
+    lca_value=obj_ptr->lca_finder(6,8);
+    cout<<"\nThe lca of the given binary tree is :"<<lca_value;
  
     
  

@@ -2,6 +2,8 @@
 #include<memory>
 #include<stack>
 using namespace std;
+
+int diameter=0;
 class Node
 {
     public:
@@ -34,12 +36,16 @@ class binary_tree
 {
     private:
         Node *head;
+        int diameter;
+        int root_diameter;
  
     public:
         
         binary_tree()
         {
             this->head=nullptr;
+            diameter=0;
+            root_diameter=0;
             
         }
  
@@ -164,6 +170,55 @@ class binary_tree
  
             cout<<"\nmaximum depth value of the tree is"<<max;
         }
+
+
+        int Height(Node* root)
+        {
+            if(root ==nullptr)
+            {
+                return 0;
+            }
+            int lh=Height(root->leftptr);
+            int rh=Height(root->rightptr);
+            diameter=max(diameter,lh+rh+1);
+            root_diameter=lh+rh+1;
+
+            return (1+max(lh,rh));
+
+        }
+
+        int Diamter()
+        {
+            
+            Height(head);
+            cout<<"\nroot diamter is :"<<root_diameter;
+            return diameter;
+
+        }
+
+        int DepthRec(Node *root)
+        {
+            if(root==nullptr)
+            {
+                return 0;
+            }
+            else
+            {
+                int lDepth=DepthRec(root->leftptr);
+                int RDepth=DepthRec(root->rightptr);
+
+                if(lDepth>RDepth)
+                {
+                    return (lDepth+1);
+                }
+
+                else
+                {
+                    return (RDepth+1);
+                }
+
+            }
+        }
  
         
  
@@ -171,6 +226,8 @@ class binary_tree
  
 int main()
 {
+
+    int diamter=0;
     unique_ptr<binary_tree>obj_ptr(new binary_tree());
  
     obj_ptr->InsertData(5);
@@ -180,13 +237,16 @@ int main()
     obj_ptr->InsertData(4);
     obj_ptr->InsertData(6);
     obj_ptr->InsertData(8);
-    obj_ptr->InsertData(9);
-    obj_ptr->InsertData(10);
+    
+    
  
     obj_ptr->DisplayData();
  
     obj_ptr->Depthvalue();
- 
+
+    
+    diameter=obj_ptr->Diamter();
+    cout<<"\nDiameter value is :"<<diameter;
  
     
  

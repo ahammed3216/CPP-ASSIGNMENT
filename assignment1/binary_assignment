@@ -257,6 +257,103 @@ class binary_tree
             return value->data;
             
         }
+
+     
+
+        int isBalanced(Node* root)
+        {
+            if(root == nullptr)
+            {
+                return 1;
+            }
+
+            int lh_height=Height(root->leftptr);
+            int rh_height=Height(root->rightptr);
+
+            if(abs(lh_height-rh_height) <= 1 && isBalanced(root->leftptr) && isBalanced(root->rightptr))
+            {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        void balancecheck()
+        {
+
+           int value=balancecheck_optimized(head);
+           if(value!= -1)
+           {
+            cout<<"The tree is balanced\n";
+
+           }
+           else
+           {
+            cout<<"\nthe tree is not balanced";
+           }
+        }
+
+        int balancecheck_optimized(Node *root)
+        {
+            if(root==nullptr)
+            {
+                return 0;
+            }
+
+            int lheight=balancecheck_optimized(root->leftptr);
+
+            if(lheight==-1)
+            {
+                return -1;
+            }
+            int rheight=balancecheck_optimized(root->rightptr);
+
+            if(rheight ==-1)
+            {
+                return -1;
+            }
+
+            if(abs(lheight-rheight)>1)
+            {
+                return -1;
+            }
+
+            return max(rheight,lheight)+1;
+            
+
+
+        }
+
+        void findMiddle(Node *slow,Node *fast)
+        {
+            if(fast==nullptr || slow==nullptr)
+            {
+                return ;
+            }
+
+            if(fast->rightptr ==nullptr && fast->leftptr==nullptr)
+            {
+                cout<<"Middle value is :"<<slow->data<<endl;
+                return;
+            }
+
+            if(fast->leftptr->leftptr)
+            {
+                findMiddle(slow->leftptr,slow->leftptr->leftptr);
+                findMiddle(slow->rightptr,fast->leftptr->leftptr);
+            }
+            else
+            {
+                findMiddle(slow->leftptr,fast->leftptr);
+                findMiddle(slow->rightptr,fast->leftptr);
+            }
+
+        }
+
+        void Middle()
+        {
+            findMiddle(head,head);
+        }
  
         
  
@@ -275,6 +372,7 @@ int main()
     obj_ptr->InsertData(4);
     obj_ptr->InsertData(6);
     obj_ptr->InsertData(8);
+
     
     
  
@@ -287,7 +385,13 @@ int main()
     cout<<"\nDiameter value is :"<<diameter;
 
     lca_value=obj_ptr->lca_finder(6,8);
-    cout<<"\nThe lca of the given binary tree is :"<<lca_value;
+    cout<<"\nThe lca of the given binary tree is :"<<lca_value<<endl;
+
+    obj_ptr->balancecheck();
+
+    obj_ptr->Middle();
+
+   
  
     
  

@@ -6,6 +6,7 @@
 using namespace std;
 int main()
 {
+    bool flag=true;
     int version_no;
     map<int,string>version;
 
@@ -21,9 +22,10 @@ int main()
 
     for(auto i=1;i<=NO_OF_VERISONS;i++)
     {
-        if(i==version_no)
+        if(i==version_no || flag ==false)
         {
             version[i]=VERSION2;
+            flag=false;
         }
         else
         {

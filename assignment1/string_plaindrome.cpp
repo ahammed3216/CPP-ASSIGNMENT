@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     unordered_map<char,int>count;
-    string str="ahammedunny";
+    string str="1234";
     string palindrome;
     bool flag;
     char oddChar='\0';
@@ -46,5 +46,5 @@ int main()
     }
 
     cout<<"\nThe palindrome string is :"<<palindrome;
-    cout<<"\nSize od the The palindrome string is :"<<palindrome.size();
+    cout<<"\nSize of the The palindrome string is :"<<palindrome.size();
 }

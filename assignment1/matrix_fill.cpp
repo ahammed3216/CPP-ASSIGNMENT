@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-vector<vector<int>> solve(vector<vector<int>>matrix,int row,int col,int src,int color);
+vector<vector<int>> solve(vector<vector<int>>&matrix,int row,int col,int src,int color);
 class Matrx
 {
     private:
@@ -57,7 +57,7 @@ int main()
     return 0;
 }
 
-vector<vector<int>> solve(vector<vector<int>>matrix,int i,int j,int src,int color)
+vector<vector<int>> solve(vector<vector<int>>&matrix,int i,int j,int src,int color)
 {
    
    if(i<0 || j<0 || i>=matrix.size() ||j>=matrix[0].size() || matrix[i][j] != src )
@@ -81,7 +81,7 @@ vector<vector<int>> solve(vector<vector<int>>matrix,int i,int j,int src,int colo
         cout<<endl;
     }
     cout<<endl;cout<<endl;
-   
+   return matrix;
    
 
 }

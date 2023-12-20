@@ -28,14 +28,17 @@ int main()
 {
 
     
-    //unique_ptr<Student>ptr(new Student(5));
+    unique_ptr<Student>ptr(new Student(5));
+    unique_ptr<Student>ptr2;
     unique_ptr<Student>ptr=make_unique<Student>(42);
+
+    //ptr2=ptr.get();
 
     //shared ptr
     shared_ptr<Student>ptr1(new Student(7));
     shared_ptr<Student>ptr4(new Student(7));
     shared_ptr<Student>ptr2 =ptr1;
-    ptr4=ptr2;
+    //ptr4=ptr2;
 
     weak_ptr<Student>ptr3=ptr1;
 

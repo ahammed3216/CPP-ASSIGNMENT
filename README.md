@@ -1,2 +1,0 @@
-# UDEMY_CPP_TRAINING
-

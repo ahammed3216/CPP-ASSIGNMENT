@@ -1,3 +1,0 @@
-hello world
-hai world
-This text is in the end of the file This text is in the end of the file This text is in the end of the file 

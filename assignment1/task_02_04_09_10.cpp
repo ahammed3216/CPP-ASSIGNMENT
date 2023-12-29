@@ -42,11 +42,17 @@ class binary_tree
         int root_diameter;
         int n1;
         int n2;
+        int small_element;
+        int k_count;
+        bool small_flag;
  
     public:
         
         binary_tree()
         {
+            small_element=0;
+            k_count=0;
+            small_flag=false;
             this->head=nullptr;
             diameter=0;
             root_diameter=0;
@@ -355,6 +361,40 @@ class binary_tree
         {
             findMiddle(head,head);
         }
+
+        void FindSmallElement(int value)
+        {
+            KsmallElement(head,value);
+            cout<<"the k th smallest element is :"<<this->small_element;
+        }
+
+        
+        void KsmallElement(Node *root,int value)
+        {
+
+            if(root==nullptr || k_count>=value)
+            {
+                
+                return ;
+            }
+
+           
+            KsmallElement(root->leftptr,value);
+            this->k_count++;
+            if(this->k_count==value && small_flag==false)
+            {
+                this->small_element=root->data;
+                this->small_flag=true;
+                return;
+            }
+            
+
+            return KsmallElement(root->rightptr,value);
+            
+            
+            
+
+        }
  
         
  
@@ -398,11 +438,15 @@ int main()
     cout<<"\nThe lca of the given binary tree is :"<<lca_value<<endl;
     cout<<"\n\n----------------------------------\n\n";
 
-    cout<<"\n\n----------Task 09 Answer------------\n\n";
+    cout<<"\n\n----------Task 10 Answer------------\n\n";
     obj_ptr->balancecheck();
     cout<<"\n\n----------------------------------\n\n";
 
     //obj_ptr->Middle();
+
+    cout<<"\n\n----------Task 15 Answer------------\n\n";
+    obj_ptr->FindSmallElement(4);
+    cout<<"\n\n----------------------------------\n\n";
 
    
  

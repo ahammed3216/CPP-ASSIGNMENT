@@ -1,11 +1,15 @@
+/*"Given the head of a singly linked list, return the middle node of the linked list.
+If there are two middle nodes, return the second middle nod"*/
+
 #include<iostream>
 #include<list>
 
 using namespace std;
+template<class T>
+int MiddleElement(list<T>& list1);
 int main()
 {
-    clock_t start,end;
-    start=clock();
+    int result=0;
     list<int>list1;
     // list1.push_back(6);
     // list1.push_back(7);
@@ -21,7 +25,20 @@ int main()
    list1.emplace_front(10);
    list1.emplace_back(11);
 
-   list<int>::iterator slow=list1.begin();
+   result=MiddleElement(list1);
+
+   cout<<"the middle value is :"<<result;
+  
+    return 0;
+}
+
+
+template<class T>
+int MiddleElement(list<T>& list1)
+ {
+    // Using '&' operator to get the address of the list
+
+     list<int>::iterator slow=list1.begin();
    list<int>::iterator fast=list1.begin();
 
     while(fast != list1.end() && next(fast) != list1.end())
@@ -30,8 +47,7 @@ int main()
         fast=next(fast,2);
     }
 
-    cout<<"the middle value is :"<<*slow;
-    end=clock();
-    std::cout<<"Time:"<<(end-start)<<std::endl;
-    return 0;
+    
+    return *slow;
+  
 }

@@ -4,6 +4,11 @@
 using namespace std;
 
 int diameter = 0;
+/*
+ * @class-name : Node
+ * @brief : Represting each node in the tree
+ * @data members : data stores the vlues of the node and next stores the pointer of the next node
+ */
 class Node
 {
 public:
@@ -31,7 +36,12 @@ public:
              << "\nDetructor is called !!";
     }
 };
-
+/*
+ * @class-name : Binary Tree
+ * @brief : Represting Whole linked list connected using the Node class
+ * @data-members:head and  current adress of the node
+ * @data-function:insert data and display data
+ */
 class binary_tree
 {
 private:
@@ -57,6 +67,11 @@ public:
         n2 = 0;
     }
 
+     /*
+     * @func : InsertData
+     * @brief : function recieves the value and inserting the data into the list
+     * @return:It returns nothing
+     */
     void InsertData(int value)
     {
         cout << "at the insert section :" << value << endl;
@@ -109,7 +124,11 @@ public:
             }
         }
     }
-
+  /*
+     * @func : DisplayData
+     * @brief : function  to display the data in the binary tree
+     * @return:It returns nothing
+     */
     void DisplayData()
     {
         stack<Node *> values;
@@ -131,10 +150,7 @@ public:
         }
     }
 
- 
-   
-
-    //function to check whether the tree is balanced or not
+    // function to check whether the tree is balanced or not
     int balancecheck_optimized(Node *root)
     {
         if (root == nullptr)
@@ -163,7 +179,7 @@ public:
         return max(rheight, lheight) + 1;
     }
 
-       // function to get the head adress of the binary tree
+    // function to get the head adress of the binary tree
     Node *GetheadAdress()
     {
         return head;
@@ -178,7 +194,7 @@ public:
 int main()
 {
 
-    int diamter = 0, lca_value = 0, depth_value = 0,bal_check=0;
+    int diamter = 0, lca_value = 0, depth_value = 0, bal_check = 0;
     unique_ptr<binary_tree> obj_ptr(new binary_tree());
 
     // Inserting Data into the tree
@@ -189,22 +205,20 @@ int main()
     obj_ptr->InsertData(4);
     obj_ptr->InsertData(6);
     obj_ptr->InsertData(8);
- 
 
     cout << "\n\n---------Insert Data------------\n\n";
     obj_ptr->DisplayData();
     cout << "\n\n----------------------------------\n\n";
 
     cout << "\n\n----------Task 10 Answer------------\n\n";
-    bal_check=obj_ptr->balancecheck_optimized(obj_ptr->GetheadAdress());
-    if(bal_check==-1)
+    bal_check = obj_ptr->balancecheck_optimized(obj_ptr->GetheadAdress());
+    if (bal_check == -1)
     {
-        cout<<"\nThe tree is not balanaced!!";
+        cout << "\nThe tree is not balanaced!!";
     }
     else
     {
-        cout<<"\nThe tree is  balanaced!!";
-
+        cout << "\nThe tree is  balanaced!!";
     }
     cout << "\n\n----------------------------------\n\n";
 }

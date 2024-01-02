@@ -4,11 +4,13 @@
 #define VERSION1 "good"
 #define VERSION2 "bad"
 using namespace std;
+map<int,string>version;
+bool APIcheck(int version_no);
 int main()
 {
-    bool flag=true;
-    int version_no;
-    map<int,string>version;
+    bool flag=true,check=false;
+    int version_no,check_ver=0;
+    
 
  again:
     cout<<"Enter the bad version of the software :";
@@ -33,15 +35,45 @@ int main()
         }
     }
 
-    cout<<"\nDisplaying the version values :\n";
+    // cout<<"\nDisplaying the version values :\n";
 
-    map<int,string>::iterator i;
+    // map<int,string>::iterator i;
 
-    for(i=version.begin();i!=version.end();i++)
+    // for(i=version.begin();i!=version.end();i++)
+    // {
+    //     cout<<i->first<<"\t"<<i->second<<endl;
+    // }
+
+    cout<<"ENter the version to check ";
+    cin>>check_ver;
+    check=APIcheck(check_ver);
+    if(check==true)
     {
-        cout<<i->first<<"\t"<<i->second<<endl;
+        cout<<VERSION1;
+    }
+    else
+    {
+        cout<<VERSION2;
     }
 
 
 
+
+}
+
+/*
+ * @func-name : APIcheck
+ * @function_description:recieves the veriosn no and retturn the version of the code
+ * @return : return the true and flase
+ */
+bool APIcheck(int version_no)
+{
+    if(version[version_no]==VERSION1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

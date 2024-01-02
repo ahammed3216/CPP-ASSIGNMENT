@@ -4,6 +4,11 @@
 using namespace std;
 
 int diameter = 0;
+/*
+ * @class-name : Node
+ * @brief : Represting each node in the tree
+ * @data members : data stores the vlues of the node and next stores the pointer of the next node
+ */
 class Node
 {
 public:
@@ -32,6 +37,12 @@ public:
     }
 };
 
+/*
+ * @class-name : Linked list
+ * @brief : Represting Whole linked list connected using the Node class
+ * @data-members:head and  current adress of the node
+ * @data-function:insert data and display data
+ */
 class binary_tree
 {
 private:
@@ -53,6 +64,11 @@ public:
         root_diameter = 0;
     }
 
+     /*
+     * @func : InsertData
+     * @brief : function recieves the value and inserting the data into the list
+     * @return:It returns nothing
+     */
     void InsertData(int value)
     {
         cout << "at the insert section :" << value << endl;
@@ -106,6 +122,12 @@ public:
         }
     }
 
+
+     /*
+     * @func : DisplayData
+     * @brief : function  to display the data in the binary tree
+     * @return:It returns nothing
+     */
     void DisplayData()
     {
         stack<Node *> values;
@@ -127,6 +149,11 @@ public:
         }
     }
 
+     /*
+     * @func : lca
+     * @brief : function recieves the root and 2 node end values and returns the lca of the 2 nodes
+     * @return:It returns the adress of the lca node
+     */
     Node *lca(Node *root, int n1, int n2)
     {
         int value1 = n1;

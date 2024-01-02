@@ -3,7 +3,17 @@
 #include<stack>
 using namespace std;
 
+/*
+	 * @class name : Matrix
+	 * @brief : TO save the values of the ro and col two make a 2D 
+	 * @members:row and col are the row and columns of the matrix,vector is the 2D vector
+	 */
 int diameter=0;
+/*
+ * @class-name : Node
+ * @brief : Represting each node in the tree
+ * @data members : data stores the vlues of the node and next stores the pointer of the next node
+ */
 class Node
 {
     public:
@@ -33,7 +43,12 @@ class Node
  
 };
  
- 
+ /*
+ * @class-name : Linked list
+ * @brief : Represting Whole linked list connected using the Node class
+ * @data-members:head and  current adress of the node
+ * @data-function:insert data and display data
+ */
 class binary_tree
 {
     private:
@@ -60,7 +75,11 @@ class binary_tree
             n2=0;
             
         }
- 
+            /*
+        * @func : InsertData
+        * @brief : function recieves the value and inserting the data into the list
+        * @return:It returns nothing
+        */
         void InsertData(int value)
         {
             cout<<"at the insert section :"<<value<<endl;
@@ -114,7 +133,11 @@ class binary_tree
  
         }
  
-
+              /*
+        * @func : DisplayData
+        * @brief : function  to display the data in the binary tree
+        * @return:It returns nothing
+        */
         void DisplayData()
         {
             stack<Node*>values;
@@ -150,7 +173,12 @@ class binary_tree
 
 
         
-        //zto find the depth of the binary tree using reccursion
+    
+              /*
+        * @func : DepthRec
+        * @brief : to find the depth of the binary tree using reccursion
+        * @return:It returns the depth of the tree
+        */
         int DepthRec(Node *root)
         {
             if(root==nullptr)

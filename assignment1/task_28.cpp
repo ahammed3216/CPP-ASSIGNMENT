@@ -4,12 +4,6 @@
 #include"class_headers.h"
 
 using namespace std;
-/*
- * @class-name : Node
- * @brief : Represting each node in the tree
- * @data members : data stores the vlues of the node and next stores the pointer of the next node
- */
-
 int CheckBinaryTree(Node *root);
 int main()
 {

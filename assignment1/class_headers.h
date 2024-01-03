@@ -162,6 +162,8 @@ class binary_tree
         {
             return head;
         }
+
+        int Height(Node *root);
  
 
 };

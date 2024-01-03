@@ -4,6 +4,11 @@
 using namespace std;
 
 int diameter = 0;
+/*
+ * @class-name : Node
+ * @brief : Represting each node in the tree
+ * @data members : data stores the vlues of the node and next stores the pointer of the next node
+ */
 class Node
 {
 public:
@@ -32,6 +37,12 @@ public:
     }
 };
 
+/*
+ * @class-name : Linked list
+ * @brief : Represting Whole linked list connected using the Node class
+ * @data-members:head and  current adress of the node
+ * @data-function:insert data and display data
+ */
 class binary_tree
 {
 private:
@@ -57,7 +68,11 @@ public:
         n2 = 0;
     }
 
-    //Insert funtion to instert the values in the bibary tree
+    /*
+     * @func : InsertData
+     * @brief : function recieves the value and inserting the data into the list
+     * @return:It returns nothing
+     */
     void InsertData(int value)
     {
         cout << "at the insert section :" << value << endl;
@@ -111,7 +126,12 @@ public:
         }
     }
 
-    //function to diokay the values in the binary tree
+    // function to diokay the values in the binary tree
+    /*
+     * @func : DisplayData
+     * @brief : function  to display the data in the binary tree
+     * @return:It returns nothing
+     */
     void DisplayData()
     {
         stack<Node *> values;
@@ -133,7 +153,12 @@ public:
         }
     }
 
-    //It is the height function of the dimeter
+    //
+    /*
+     * @func : Height
+     * @brief : It is the height function of the dimeter
+     * @return:It returns the height of the binary tree
+     */
     int Height(Node *root)
     {
         if (root == nullptr)
@@ -142,13 +167,13 @@ public:
         }
         int lh = Height(root->leftptr);
         int rh = Height(root->rightptr);
-        diameter = max(diameter, lh + rh + 1);//it is the condition for finding the dimerter of the tree
-        root_diameter = lh + rh + 1;//it is the final diameter of the tree will be the dimater of the root node
+        diameter = max(diameter, lh + rh + 1); // it is the condition for finding the dimerter of the tree
+        root_diameter = lh + rh + 1;           // it is the final diameter of the tree will be the dimater of the root node
 
         return (1 + max(lh, rh));
     }
 
-    //function to get the head adress of the binary tree
+    // function to get the head adress of the binary tree
     Node *GetheadAdress()
     {
         return head;

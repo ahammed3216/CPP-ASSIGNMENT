@@ -32,7 +32,11 @@ int main()
     return 0;
 }
 
-
+/*
+    * @func : MiddleElement
+    * @brief : function recieves the list and finding the middle element using slow and fast pointer
+    * @return:It returns the middle element of the matrix
+    */
 template<class T>
 int MiddleElement(list<T>& list1)
  {

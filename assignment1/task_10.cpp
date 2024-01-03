@@ -151,6 +151,12 @@ public:
     }
 
     // function to check whether the tree is balanced or not
+
+     /*
+     * @func : balancecheck_optimized
+     * @brief : it verify whether the tree is balaced or not
+     * @return:It returns -1 if it not balacned a=other than any values the tree is balanced
+     */
     int balancecheck_optimized(Node *root)
     {
         if (root == nullptr)

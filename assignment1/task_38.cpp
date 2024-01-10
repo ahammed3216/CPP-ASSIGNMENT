@@ -31,7 +31,7 @@ class SortClass final
                 }
                 else
                 {
-                    
+                    med++;
                 }
                 
             }

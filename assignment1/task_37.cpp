@@ -56,12 +56,15 @@ class Account final
                     sort(row.begin(),row.end());
                     if(find(result.begin(),result.end(),row)==result.end())
                         result.push_back(row);
+
+                    
                     row.clear();
                     check.clear();
                     cout<<endl;
 
                
             }
+            sort(result.begin(),result.end());
         }
 
 };

@@ -68,7 +68,7 @@ int main()
 {
     vector<int>arr={2,3,6,7};
     vector<int>arr1={2,3,5};
-    int target=8;
-    unique_ptr<CombinationSum>ptr=make_unique<CombinationSum>(arr1,target);
+    int target=7;
+    unique_ptr<CombinationSum>ptr=make_unique<CombinationSum>(arr,target);
     ptr->sum();
 }

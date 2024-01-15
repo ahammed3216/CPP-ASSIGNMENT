@@ -36,7 +36,7 @@ public:
             return true;
     }
 
-    void Startup()
+    int Startup()
     {
         for (auto i = 0; i < oranges.size(); i++)
         {
@@ -81,6 +81,15 @@ public:
             }
             
         }
+
+        if(fresh_count != 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 };
 int main()
@@ -95,5 +104,16 @@ int main()
 
     unique_ptr<RottenOranges> ptr = make_unique<RottenOranges>(arr);
 
-    ptr->Startup();
+    int result=ptr->Startup();
+
+    if(result ==-1)
+    {
+        cout<<"It is not possible";
+    }
+    else
+    {
+        cout<<"The minimum time taken is "<<result;
+    }
+
+    return 0;
 }

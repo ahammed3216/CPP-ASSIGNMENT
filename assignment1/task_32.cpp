@@ -63,6 +63,17 @@ class CombinationSum final
 
             
         }
+        void printRes()
+        {
+            for(const auto obj:result)
+            {
+                for(const auto obj1:obj)
+                {
+                    cout<<obj1<<"\t";
+                }
+                cout<<endl;
+            }
+        }
 };
 int main()
 {
@@ -71,4 +82,5 @@ int main()
     int target=7;
     unique_ptr<CombinationSum>ptr=make_unique<CombinationSum>(arr,target);
     ptr->sum();
+    ptr->printRes();
 }

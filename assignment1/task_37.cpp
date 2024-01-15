@@ -67,6 +67,18 @@ class Account final
             sort(result.begin(),result.end());
         }
 
+        void PrintResult()
+        {
+            for(const auto obj:result)
+            {
+                for(const auto obj1:obj)
+                {
+                    cout<<obj1<<"\t";
+                }
+                cout<<endl;
+            }
+        }
+
 };
 int main()
 {
@@ -75,7 +87,9 @@ int main()
 
     vector<vector<string>>accounts1 = {{"Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"},{"Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"},{"Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"},{"Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"},{"Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"}};
 
-    unique_ptr<Account>ptr=make_unique<Account>(accounts1);
+    unique_ptr<Account>ptr=make_unique<Account>(accounts);
 
     ptr->MergeAccount();
+
+    ptr->PrintResult();
 }

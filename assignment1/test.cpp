@@ -1,24 +1,23 @@
-#include<iostream>
-using namespace std;
-class car
-{
-    public:
-        int model;
-    
-    public:
-        car(int id):model(id){}
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-};
+int main() {
+    // Create a vector with duplicate elements
+    std::vector<int> numbers = {1, 2, 2, 3, 3, 4, 5, 5, 5, 6};
 
-int main()
-{
-    //deep copy
-    car c1(2000);
-    car c2=c1;
-    c2.model=3000;
+    // Use std::unique to remove consecutive duplicates
+    auto last = std::unique(numbers.begin(), numbers.end());
 
-    //shallow copy
-    car *c3=&c1;
+    // Resize the vector to remove the elements after the unique ones
+    numbers.erase(last, numbers.end());
 
-    car *ptr=new car(500);
+    // Print the unique elements in the vector
+    std::cout << "Unique elements in the vector: ";
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }

@@ -19,7 +19,7 @@ int main()
         
 
 
-    }while(value != -1);
+    }while(value >0);
 
     for(auto i=coins.begin();i!=coins.end();i++)
     {
@@ -48,6 +48,7 @@ int mincoins1(vector<int>&coins,int amount)
         return 0;
     }
     int result=numeric_limits<int>::max();//to make the max limit condition
+    //int result=amount+1;;//to make the max limit c
     
        
     for(int i=1;i<amount;i++)
@@ -57,7 +58,7 @@ int mincoins1(vector<int>&coins,int amount)
             if(coins[j]<=amount)
             {
                 int subresult=mincoins1(coins,amount-coins[j]);
-                if(subresult != numeric_limits<int>::max() )
+                if(subresult != numeric_limits<int>::max())
                 {
                     result=min(result,subresult+1);
                 }
